@@ -1,0 +1,360 @@
+#body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+main {
+    width: 90%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.message {
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 600px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.a-approve,
+.a-reject {
+    font-size: 18px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.a-approve {
+    color: #4CAF50;
+}
+
+.a-approve:hover {
+    color: #89da8c;
+}
+
+.a-reject {
+    color: #d9534f;
+}
+
+.a-reject:hover {
+    color: #dd817e;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1099px) {
+    main {
+        width: 80%;
+        padding: 15px;
+    }
+
+    table.approved th,
+    table.approved td {
+        padding: 10px;
+    }
+
+    table.all-pro th,
+    table.all-pro td {
+        padding: 10px;
+    }
+
+    table.all-pro {
+        font-size: 14px;
+    }
+
+    table.contact-table th,
+    table.contact-table td {
+        padding: 10px;
+    }
+
+    .a-approve,
+    .a-reject {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 799px) {
+    #body {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    main {
+        width: 100%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    table.approved th,
+    table.approved td {
+        padding: 8px;
+    }
+
+    table.all-pro th,
+    table.all-pro td {
+        padding: 8px;
+    }
+
+    table.all-pro {
+        font-size: 12px;
+    }
+
+    table.contact-table th,
+    table.contact-table td {
+        padding: 8px;
+    }
+
+    .message {
+        max-width: 100%;
+    }
+
+    .a-approve,
+    .a-reject {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 477px) {
+    #body {
+        padding: 5px;
+    }
+
+    main {
+        width: 100%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    table.approved {
+        font-size: 0.9rem;
+    }
+
+    table.approved th,
+    table.approved td {
+        padding: 8px;
+    }
+
+    table.all-pro th,
+    table.all-pro td {
+        padding: 6px;
+        font-size: 10px;
+    }
+
+    table.all-pro,
+    table.contact-table {
+        font-size: 10px;
+    }
+
+    table.all-pro td,
+    table.contact-table td {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    table.contact-table th,
+    table.contact-table td {
+        padding: 8px;
+    }
+
+    .message {
+        max-width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .all-pro .a-approve,
+    .all-pro .a-reject {
+        font-size: 12px;
+    }
+
+    .a-approve,
+    .a-reject {
+        font-size: 14px;
+    }
+
+    .pro-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .pro {
+        width: 100%;
+        text-align: center;
+    }
+
+    .ads-label {
+        font-size: 0.9rem;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        background-color: #ff5722;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .star i {
+        font-size: 14px;
+    }
+
+    .des h4 {
+        font-size: 1.1rem;
+    }
+}
+
+/* For screen width <= 399px */
+@media (max-width: 399px) {
+    table.all-pro {
+        font-size: 9px;
+    }
+
+    table.all-pro th,
+    table.all-pro td {
+        padding: 5px;
+    }
+
+    table.approved th,
+    table.approved td {
+        padding: 5px;
+    }
+
+    table.contact-table th,
+    table.contact-table td {
+        padding: 5px;
+    }
+
+    .a-approve,
+    .a-reject {
+        font-size: 12px;
+    }
+
+    .ads-label {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+}
+
+/* For screen width <= 379px */
+@media (max-width: 379px) {
+    table.all-pro {
+        font-size: 8px;
+    }
+
+    table.all-pro th,
+    table.all-pro td {
+        padding: 4px;
+    }
+
+    table.contact-table th,
+    table.contact-table td {
+        padding: 4px;
+    }
+
+    .a-approve,
+    .a-reject {
+        font-size: 11px;
+    }
+
+    .ads-label {
+        font-size: 0.75rem;
+        padding: 3px 7px;
+    }
+}
+
+/* For screen width <= 349px */
+@media (max-width: 349px) {
+    table.all-pro {
+        font-size: 7px;
+    }
+
+    table.all-pro th,
+    table.all-pro td {
+        padding: 3px;
+    }
+
+    .a-approve,
+    .a-reject {
+        font-size: 10px;
+    }
+
+    .ads-label {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+}
+
+/* For screen width <= 344px */
+@media (max-width: 344px) {
+
+    table.all-pro {
+        font-size: 6px;
+    }
+
+    table.all-pro th,
+    table.all-pro td {
+        padding: 2px;
+    }
+
+    table.approved th,
+    table.approved td {
+        padding: 4px;
+    }
+
+    table.contact-table th,
+    table.contact-table td {
+        padding: 4px;
+    }
+
+    .a-approve,
+    .a-reject {
+        font-size: 9px;
+    }
+
+    .ads-label {
+        font-size: 0.65rem;
+        padding: 2px 5px;
+    }
+}

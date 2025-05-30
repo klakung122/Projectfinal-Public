@@ -1,0 +1,101 @@
+#page-header {
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+}
+
+#page-header h2,
+#page-header p {
+    color: #fff;
+}
+
+#page-header.about-header {
+    background-image: url("/../project/img/about/banner.png");
+}
+
+#about-head {
+    display: flex;
+    align-items: center;
+}
+
+#about-head img {
+    width: 50%;
+    height: auto;
+}
+
+#about-head div {
+    padding-left: 40px;
+}
+
+/* Start Media Query */
+
+/* Medium Screens (up to 1099px) */
+@media (max-width: 1099px) {
+    #page-header {
+        height: 35vh;
+    }
+
+    #about-head {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #about-head img {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    #about-head div {
+        padding-left: 0;
+        padding-top: 20px;
+    }
+}
+
+/* Small Screens (up to 799px) */
+@media (max-width: 799px) {
+    #page-header {
+        height: 30vh;
+    }
+
+    #about-head {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #about-head img {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    #about-head div {
+        padding-left: 0;
+        text-align: center;
+    }
+}
+
+/* Very Small Screens (up to 477px) */
+@media (max-width: 477px) {
+    #page-header {
+        height: 25vh;
+    }
+
+    #about-head {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #about-head img {
+        width: 100%;
+    }
+
+    #about-head div {
+        padding-left: 0;
+        text-align: center;
+        padding-top: 10px;
+    }
+}

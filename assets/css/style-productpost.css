@@ -1,0 +1,329 @@
+/* Section containers */
+#body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#form-details,
+#form-edit {
+    background-color: #fff;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styling */
+#form-details h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="file"] {
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Image preview */
+img {
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* Button styling */
+.but-form .normal {
+    background-color: #088178;
+    color: #fff;
+    padding: 12px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.but-form .normal:hover {
+    background-color: #26a098;
+}
+
+.a-edit,
+.a-de {
+    font-size: 18px;
+    color: #555;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.a-edit:hover {
+    color: #007bff;
+}
+
+.a-de:hover {
+    color: #d9534f;
+}
+
+/* Buttons container */
+.but-form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.but-form a {
+    margin-left: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #d3792f;
+    font-size: 12px;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+}
+
+.but-form a:hover {
+    background-color: #f28e45;
+}
+
+
+
+/* Logout styling */
+.logout {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.logout a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #eb4d4d;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+}
+
+.logout a:hover {
+    background-color: #f56c6c;
+}
+
+/* Error message */
+.re-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 15px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-weight: normal;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+td img {
+    border-radius: 5px;
+    width: 100px;
+    height: auto;
+}
+
+tbody tr td[colspan="4"] {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+}
+
+/* Start Media Query */
+
+/* Medium screens (up to 1099px) */
+@media (max-width: 1099px) {
+
+    #form-details,
+    #form-edit {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .form-control,
+    .but-form .normal,
+    .logout a {
+        font-size: 15px;
+    }
+
+    .form-label {
+        font-size: 14px;
+    }
+}
+
+/* Small screens (up to 799px) */
+@media (max-width: 799px) {
+    #form-details h2 {
+        font-size: 22px;
+    }
+
+    table,
+    .but-form,
+    .logout {
+        width: 100%;
+    }
+
+    .but-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .but-form a,
+    .but-form .normal {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Very small screens (up to 477px) */
+@media (max-width: 477px) {
+
+    #form-details,
+    #form-edit {
+        padding: 10px;
+    }
+
+    #form-details h2 {
+        font-size: 20px;
+    }
+
+    .form-control,
+    input[type="file"],
+    .but-form .normal,
+    .logout a {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    thead th,
+    tbody td {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    td img {
+        width: 70px;
+    }
+}
+
+/* Extra small screens (up to 344px) */
+@media (max-width: 344px) {
+    #body {
+        padding: 10px;
+    }
+
+    #form-details,
+    #form-edit {
+        padding: 8px;
+        max-width: 100%;
+    }
+
+    #form-details h2 {
+        font-size: 18px;
+    }
+
+    .form-label {
+        font-size: 12px;
+    }
+
+    .form-control,
+    input[type="file"],
+    .but-form .normal,
+    .logout a {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .but-form {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .but-form a,
+    .but-form .normal {
+        width: 100%;
+        padding: 8px;
+    }
+
+    table {
+        font-size: 10px;
+    }
+
+    thead th,
+    tbody td {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    td img {
+        width: 50px;
+        height: auto;
+    }
+
+    .re-message {
+        font-size: 10px;
+        padding: 6px;
+    }
+
+    .logout a {
+        font-size: 12px;
+        padding: 10px;
+    }
+}

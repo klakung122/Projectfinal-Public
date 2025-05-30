@@ -1,0 +1,227 @@
+/* CSS file: style-profile.css */
+
+/* Basic styling and reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+#body {
+    background-color: #f4f6f8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#profile-details {
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 500px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#profile-details h2 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+table td {
+    padding: 8px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+table td:first-child {
+    font-weight: bold;
+    text-align: left;
+}
+
+table td:last-child {
+    text-align: right;
+    color: #444;
+}
+
+/* Buttons */
+.post,
+.logout {
+    margin: 10px 0;
+}
+
+.post a,
+.logout a,
+.admin-panel a {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #088178;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.post a:hover {
+    background-color: #26a098;
+}
+
+.admin-panel a {
+    background-color: #d3792f;
+}
+
+.admin-panel a:hover {
+    background-color: #f28e45;
+}
+
+.logout a {
+    background-color: #eb4d4d;
+}
+
+.logout a:hover {
+    background-color: #f56c6c;
+}
+
+/* like */
+
+#profile-like {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1500px;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+    margin: 3rem 0 5rem 0;
+}
+
+#profile-like .pro-title h2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 32px;
+}
+
+#profile-like .pro-like-con {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#profile-like .like-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    max-width: 300px;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    transition: 0.2s ease;
+}
+
+#profile-like .like-con:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+
+#profile-like .like-con img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+#profile-like .like-con h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+#profile-like .like-con .like {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #f00;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+/* Start Media Query */
+
+/* Medium screen adjustments */
+@media (max-width: 1099px) {
+    #profile-details {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    #profile-details h2 {
+        font-size: 24px;
+    }
+
+    table td {
+        font-size: 15px;
+    }
+}
+
+/* Small screen adjustments */
+@media (max-width: 799px) {
+    #profile-details {
+        padding: 15px;
+    }
+
+    #profile-details h2 {
+        font-size: 22px;
+    }
+
+    .post a,
+    .logout a {
+        font-size: 15px;
+        padding: 8px;
+    }
+}
+
+/* Very small screen adjustments */
+@media (max-width: 477px) {
+    #profile-details {
+        padding: 10px;
+    }
+
+    #profile-details h2 {
+        font-size: 20px;
+    }
+
+    table td {
+        font-size: 14px;
+    }
+
+    .post a,
+    .logout a {
+        font-size: 14px;
+        padding: 6px;
+    }
+}

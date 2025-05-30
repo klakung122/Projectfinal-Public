@@ -1,0 +1,245 @@
+#prodetails {
+    display: flex;
+    margin-right: 50px;
+}
+
+#prodetails .single-pro-image {
+    width: 678px;
+    margin-right: 50px;
+}
+
+#prodetails .single-img-col img {
+    height: 460px;
+}
+
+.small-img-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.small-img-col {
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+.small-img-col img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#prodetails .single-pro-details {
+    width: 50%;
+    padding-top: 30px;
+}
+
+#prodetails .single-pro-details h4 {
+    padding: 40px 0 20px 0;
+}
+
+#prodetails .single-pro-details h2 {
+    font-size: 26px;
+}
+
+#prodetails .single-pro-details select {
+    display: block;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+#prodetails .single-pro-details input {
+    width: 50px;
+    height: 47px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#prodetails .single-pro-details input:focus {
+    outline: none;
+}
+
+#prodetails .single-pro-details span {
+    line-height: 25px;
+}
+
+#prodetails .single-pro-details .tel {
+    text-decoration: none;
+    color: #fff;
+    background-color: #088178;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+}
+
+#prodetails .single-pro-details .like {
+    display: flex;
+    /* แสดงปุ่มเสมอ */
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    text-decoration: none;
+    color: rgb(245, 116, 116);
+    font-size: 45px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ไอคอนปกติ (fa-regular) จะแสดงเป็นค่าเริ่มต้น */
+#prodetails .single-pro-details .like .fa-regular {
+    display: inline-block;
+}
+
+/* ไอคอนแบบ solid (fa-solid) ซ่อนเป็นค่าเริ่มต้น */
+#prodetails .single-pro-details .like .fa-solid {
+    display: none;
+}
+
+/* เมื่อกด like (เพิ่ม class liked) */
+#prodetails .single-pro-details .like.liked .fa-regular {
+    display: none;
+}
+
+#prodetails .single-pro-details .like.liked .fa-solid {
+    display: inline-block;
+    color: #f00;
+    /* เปลี่ยนสีเมื่อกด like */
+}
+
+/* เพิ่มการ hover เพื่อเน้นเอฟเฟกต์ */
+#prodetails .single-pro-details .like:hover {
+    color: #f00;
+    transition: color 0.3s;
+}
+
+
+/* Start Media Query */
+
+/* Medium Screens (up to 1099px) */
+@media (max-width: 1099px) {
+    #prodetails {
+        margin-right: 20px;
+    }
+
+    #prodetails .single-pro-image {
+        width: 415px;
+        margin-right: 20px;
+    }
+
+    #prodetails .single-pro-details {
+        width: 50%;
+    }
+
+    #prodetails .single-img-col img {
+        height: 311px;
+    }
+
+    .small-img-col {
+        flex-basis: 30%;
+    }
+
+    .small-img-col img {
+        width: 100%;
+        height: 100%;
+    }
+
+    #prodetails .single-pro-details h2 {
+        font-size: 22px;
+    }
+
+    #prodetails .single-pro-details a {
+        padding: 12px 24px;
+    }
+}
+
+/* Small Screens (up to 799px) */
+@media (max-width: 799px) {
+    #prodetails {
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0;
+    }
+
+    #prodetails .single-pro-image {
+        width: 412px;
+        margin-right: 0;
+    }
+
+    #prodetails .single-img-col img {
+        height: 309px;
+    }
+
+    #prodetails .single-pro-details {
+        width: 80%;
+        margin-top: 20px;
+    }
+
+    .small-img-col {
+        flex-basis: 48%;
+        margin-bottom: 10px;
+    }
+
+    .small-img-col img {
+        width: 100%;
+        height: 100%;
+    }
+
+    #prodetails .single-pro-details h2 {
+        font-size: 20px;
+    }
+
+    #prodetails .single-pro-details a {
+        padding: 10px 20px;
+    }
+}
+
+/* Very Small Screens (up to 477px) */
+@media (max-width: 477px) {
+    #prodetails {
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0;
+    }
+
+    #prodetails .single-pro-image {
+        width: 273px;
+        margin-right: 0;
+    }
+
+    #prodetails .single-pro-details {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    #prodetails .single-img-col img {
+        height: 204px;
+    }
+
+    .small-img-col {
+        flex-basis: 100%;
+        margin-bottom: 10px;
+    }
+
+    .small-img-col img {
+        width: 100%;
+        height: 100%;
+    }
+
+    #prodetails .single-pro-details h2 {
+        font-size: 18px;
+    }
+
+    #prodetails .single-pro-details a {
+        padding: 8px 16px;
+    }
+}

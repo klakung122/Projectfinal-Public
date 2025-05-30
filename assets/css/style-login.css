@@ -1,0 +1,192 @@
+/* CSS file: style-login.css */
+
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+#body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+#form-details {
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#form-details h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-label {
+    font-weight: bold;
+    margin: 10px 0 5px;
+    display: block;
+    text-align: left;
+    font-size: 16px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.re-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Button and Link Styling */
+.login .normal {
+    width: 100%;
+    padding: 10px;
+    background-color: #088178;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.login .normal:hover {
+    background-color: #26a098;
+}
+
+.login a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #d3792f;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login a:hover {
+    color: #f28e45;
+}
+
+.register .normal {
+    width: 100%;
+    padding: 10px;
+    background-color: #088178;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.register .normal:hover {
+    background-color: #26a098;
+}
+
+.register a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #d3792f;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.register a:hover {
+    color: #f28e45;
+}
+
+/* Start Media Query */
+
+/* Medium screens (up to 1099px) */
+@media (max-width: 1099px) {
+    #form-details {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .form-control,
+    .normal {
+        font-size: 15px;
+    }
+
+    .form-label {
+        font-size: 14px;
+    }
+
+    .login a,
+    .register a {
+        font-size: 13px;
+    }
+}
+
+/* Small screens (up to 799px) */
+@media (max-width: 799px) {
+    #form-details {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    #form-details h2 {
+        font-size: 22px;
+    }
+
+    .form-control,
+    .normal {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .login a,
+    .register a {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+}
+
+/* Very small screens (up to 477px) */
+@media (max-width: 477px) {
+    #form-details {
+        padding: 10px;
+        max-width: 95%;
+    }
+
+    #form-details h2 {
+        font-size: 20px;
+    }
+
+    .form-control,
+    .normal {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .login a,
+    .register a {
+        font-size: 12px;
+    }
+}
