@@ -10,13 +10,13 @@ if (isset($_SESSION['user_id'])) {
 ?>
 
 <section id="header">
-    <a href="http://localhost/project/">
+    <a href="https://rental.watcharakon.info/project/">
         <img src="img/logo1.png" class="logo" alt="Company Logo" width="100">
     </a>
 
     <div>
         <ul id="navbar">
-            <li><a class="active" href="http://localhost/project/">Home</a></li>
+            <li><a class="active" href="https://rental.watcharakon.info/project/">Home</a></li>
             <li><a href="about">About</a></li>
             <li><a href="contact">Contact</a></li>
             <li><a href="<?php echo $link; ?>"><i class="fa-solid fa-user"></i></a></li>
