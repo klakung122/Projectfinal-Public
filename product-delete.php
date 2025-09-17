@@ -2,7 +2,7 @@
 session_start();
 include 'config.php';
 
-// กัน warning เด้งออกจอจน header ใช้ไม่ได้
+// กัน warning โผล่จน header ใช้ไม่ได้
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 
@@ -15,7 +15,6 @@ if (!empty($_GET['id'])) {
     $product_id = $_GET['id'];
     $user_id    = $_SESSION['user_id'];
 
-    // ดึงเฉพาะของตัวเอง
     $sql = "SELECT profile_image, profile_image2, profile_image3
             FROM products
             WHERE id = '$product_id' AND user_id = '$user_id'
@@ -25,36 +24,34 @@ if (!empty($_GET['id'])) {
     if ($res && mysqli_num_rows($res) > 0) {
         $product = mysqli_fetch_assoc($res);
 
-        // พาธปลายทางแบบ absolute + เคลียร์ท้ายให้เรียบร้อย
-        $folderPath = rtrim(__DIR__ . '/img/product', '/') . '/';
-        $folderReal = realpath($folderPath) ?: $folderPath; // เผื่อยังไม่มี realpath
+        // ใช้ absolute path เสมอ
+        $folderPath = rtrim(__DIR__, '/\\') . '/img/product/';
 
-        // รวมชื่อไฟล์ (อาจมีค่าว่าง/ขยะมา)
-        $candidates = [
-            $product['profile_image']  ?? '',
-            $product['profile_image2'] ?? '',
-            $product['profile_image3'] ?? '',
-        ];
+        // ฟังก์ชันลบแบบกันตาย
+        $deleteIfSafe = function ($name) use ($folderPath) {
+            if (!is_string($name) || $name === '') return;
 
-        foreach ($candidates as $raw) {
-            // แปลง \ เป็น / แล้ว basename กัน path traversal + ตัดช่องว่าง
-            $base = trim(basename(str_replace('\\', '/', (string)$raw)));
+            // เอาเฉพาะชื่อไฟล์ (กัน path traversal)
+            $base = trim(basename(str_replace('\\', '/', $name)));
 
-            // ข้ามค่าว่าง/จุด/โฟลเดอร์
-            if ($base === '' || $base === '.' || $base === '..' || substr($base, -1) === '/') {
-                continue;
-            }
+            // ถ้ากลายเป็นค่าว่าง/จุด/ขึ้นไดเรกทอรี ให้ข้าม
+            if ($base === '' || $base === '.' || $base === '..') return;
+
+            // ห้ามมีสแลชเหลืออยู่ (กันหลุดโฟลเดอร์)
+            if (strpos($base, '/') !== false) return;
 
             $full = $folderPath . $base;
 
-            // เช็กว่าเป็นไฟล์จริง และอยู่ใต้โฟลเดอร์ที่กำหนดเท่านั้น
-            $fullReal = realpath($full);
-            if ($fullReal !== false
-                && str_starts_with($fullReal, rtrim($folderReal, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR)
-                && is_file($fullReal)) {
-                @unlink($fullReal);
+            // ต้องเป็น "ไฟล์" จริงเท่านั้น (ถ้าเป็นโฟลเดอร์/ไม่มีไฟล์ จะไม่ลบ)
+            if (is_file($full)) {
+                @unlink($full);
             }
-        }
+        };
+
+        // ไล่ลบทีละรูป (ถ้ามี)
+        $deleteIfSafe($product['profile_image']  ?? '');
+        $deleteIfSafe($product['profile_image2'] ?? '');
+        $deleteIfSafe($product['profile_image3'] ?? '');
 
         // ลบเรคคอร์ด
         $del = mysqli_query($conn, "DELETE FROM products WHERE id = '$product_id' AND user_id = '$user_id'");
