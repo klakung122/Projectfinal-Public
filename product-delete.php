@@ -2,7 +2,7 @@
 session_start();
 include 'config.php';
 
-// กัน warning โผล่จน header ใช้ไม่ได้
+// กัน warning โผล่บนจอ (แต่ยังล็อกลง error log)
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 
@@ -27,28 +27,24 @@ if (!empty($_GET['id'])) {
         // ใช้ absolute path เสมอ
         $folderPath = rtrim(__DIR__, '/\\') . '/img/product/';
 
-        // ฟังก์ชันลบแบบกันตาย
+        // ฟังก์ชันลบแบบกันตายสุดๆ
         $deleteIfSafe = function ($name) use ($folderPath) {
-            if (!is_string($name) || $name === '') return;
+            if (!is_string($name) || trim($name) === '') return;
 
             // เอาเฉพาะชื่อไฟล์ (กัน path traversal)
             $base = trim(basename(str_replace('\\', '/', $name)));
-
-            // ถ้ากลายเป็นค่าว่าง/จุด/ขึ้นไดเรกทอรี ให้ข้าม
             if ($base === '' || $base === '.' || $base === '..') return;
-
-            // ห้ามมีสแลชเหลืออยู่ (กันหลุดโฟลเดอร์)
-            if (strpos($base, '/') !== false) return;
+            if (strpos($base, '/') !== false) return; // ถ้ายังมี / อยู่ ให้ข้าม
 
             $full = $folderPath . $base;
 
-            // ต้องเป็น "ไฟล์" จริงเท่านั้น (ถ้าเป็นโฟลเดอร์/ไม่มีไฟล์ จะไม่ลบ)
-            if (is_file($full)) {
-                @unlink($full);
-            }
+            // ถ้าเป็นโฟลเดอร์หรือไม่มีไฟล์ ให้ข้ามทันที
+            if (is_dir($full) || !is_file($full)) return;
+
+            @unlink($full);
         };
 
-        // ไล่ลบทีละรูป (ถ้ามี)
+        // ไล่ลบทีละรูป
         $deleteIfSafe($product['profile_image']  ?? '');
         $deleteIfSafe($product['profile_image2'] ?? '');
         $deleteIfSafe($product['profile_image3'] ?? '');
