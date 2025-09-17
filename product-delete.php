@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include 'config.php';
 
@@ -30,18 +31,13 @@ if (!empty($_GET['id'])) {
         // ฟังก์ชันลบแบบกันตายสุดๆ
         $deleteIfSafe = function ($name) use ($folderPath) {
             if (!is_string($name) || trim($name) === '') return;
-
-            // เอาเฉพาะชื่อไฟล์ (กัน path traversal)
             $base = trim(basename(str_replace('\\', '/', $name)));
             if ($base === '' || $base === '.' || $base === '..') return;
-            if (strpos($base, '/') !== false) return; // ถ้ายังมี / อยู่ ให้ข้าม
+            if (strpos($base, '/') !== false) return;
 
             $full = $folderPath . $base;
-
-            // ถ้าเป็นโฟลเดอร์หรือไม่มีไฟล์ ให้ข้ามทันที
-            if (is_dir($full) || !is_file($full)) return;
-
-            @unlink($full);
+            if (!is_file($full)) return; // << สำคัญ: ต้องเป็น "ไฟล์" เท่านั้น
+            @unlink($full);              // โฟลเดอร์จะไม่เข้าเงื่อนไขนี้
         };
 
         // ไล่ลบทีละรูป
@@ -57,6 +53,7 @@ if (!empty($_GET['id'])) {
     }
 }
 
+if (ob_get_length()) { ob_end_clean(); } // เคลียร์ทุกอย่างที่เผลอพ่นออกมา
 header("Location: product-post");
 mysqli_close($conn);
 exit();
